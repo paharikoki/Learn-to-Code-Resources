@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Event Handlers</title>
+</head>
+<body>
+<h1>Event Handlers Example</h1>
+
+<input type="text" id="textInput" onchange="handleChange()" onclick="handleClick()"
+       onfocus="handleFocus()" onselect="handleSelect()" />
+
+<button onclick="handleButtonClick()">Click me</button>
+
+<form onsubmit="handleSubmit()">
+    <input type="submit" value="Submit Form">
+    <input type="reset" value="Reset Form">
+</form>
+<script>
+    //if TextInput changes
+    function handleChange() {
+        console.log("Text input changed");
+    }
+
+    function handleClick() {
+        console.log("Input clicked");
+    }
+
+    function handleFocus() {
+        console.log("Input focused");
+    }
+
+    function handleSelect() {
+        console.log("Text selected");
+    }
+
+    function handleButtonClick() {
+        console.log("Button clicked");
+    }
+
+    function handleSubmit(event) {
+        console.log("Form submitted");
+        event.preventDefault(); // Prevents the default form submission behavior
+    }
+
+    window.onabort = function() {
+        console.log("Loading of a resource has been aborted");
+    };
+
+    window.onresize = function() {
+        console.log("Window has been resized");
+    };
+
+    window.onstop = function() {
+        console.log("Document has been stopped from loading");
+    };
+
+</script>
+</body>
+</html>

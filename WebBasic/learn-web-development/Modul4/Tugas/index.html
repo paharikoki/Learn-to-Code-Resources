@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Kalkulator Bangun Ruang</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+</head>
+<body>
+<div class="container mt-5">
+    <h1 class="text-center">Kalkulator Bangun Ruang</h1>
+
+    <div class="row mt-4">
+        <div class="col-md-6 offset-md-3">
+            <div class="input-group mb-3">
+                <label class="input-group-text" for="shapeSelect">Pilih Bentuk:</label>
+                <select class="form-select" id="shapeSelect" onchange="showInputFields()">
+                    <option value="pilihan">...... Pilih ...... </option>
+                    <option value="balok">Balok</option>
+                    <option value="kubus">Kubus</option>
+                    <option value="tabung">Tabung</option>
+                    <option value="kerucut">Kerucut</option>
+                    <option value="bola">Bola</option>
+                    <option value="prisma">Prisma</option>
+                    <option value="persegi">Persegi</option>
+                    <option value="persegiPanjang">Persegi Panjang</option>
+                    <option value="segitigaSamaSisi">Segitiga Sama Sisi</option>
+                    <option value="segitigaSamaKaki">Segitiga Sama Kaki</option>
+                    <option value="segitigaSikuSiku">Segitiga Siku-Siku</option>
+                </select>
+            </div>
+
+            <div class="input-group mb-3" id="inputFields" style="display: none;">
+                <!-- Dynamic input fields will be placed here -->
+            </div>
+                <button class="btn btn-primary mt-3 "style="width: calc(100% );" onclick="calculate()">Hitung</button>
+
+            <div id="result" style="display: none;">
+                <h2 class="mt-4">Hasil Perhitungan:</h2>
+                <p id="resultValue"></p>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script src="script.js"></script>
+</body>
+</html>

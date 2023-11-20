@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Event System Handlers</title>
+</head>
+<body>
+  <img id="image" src="nonexistent-image.jpg"
+       onerror="handleError()" onload="handleLoad()">
+  <script>
+    function handleError() {
+      console.log("Image failed to load!");
+    }
+    function handleLoad() {
+      console.log("Image loaded successfully!");
+    }
+    window.onload = function() {
+      console.log("Page loaded");
+
+      window.onbeforeunload = function() {
+        return "Are you sure you want to leave?";
+      };
+    };
+  </script>
+</body>
+</html>
