@@ -1,5 +1,6 @@
 <?php
 if ($_SERVER["REQUEST_METHOD"] === "GET") {
+     // Get the email from the GET parameters or set it to an empty string
     $email = isset($_GET['email']) ? $_GET['email'] : '';
 
     // Perform database query to check if the email exists
@@ -9,6 +10,7 @@ if ($_SERVER["REQUEST_METHOD"] === "GET") {
         die("Connection failed: " . $db->connect_error);
     }
 
+    // Prepare a SQL statement to count rows with the provided email
     $stmt = $db->prepare("SELECT COUNT(*) FROM users WHERE email = ?");
     $stmt->bind_param("s", $email);
     $stmt->execute();

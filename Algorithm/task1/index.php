@@ -178,7 +178,14 @@
             confirmPasswordValidationMessage.classList.add('text-red-700');
         }
     });
+    // Check input password with    
 
+    // function checks the validity of a password based on certain criteria.
+    // At least one uppercase letter ((?=.*[A-Z]))
+    // At least one lowercase letter ((?=.*[a-z]))
+    // At least one digit ((?=.*\d))
+    // At least one special character from the set !@# ((?=.*[!@#]))
+    // Minimum length of 8 characters (.{8,})
     function verifyPassword(password) {
         const regex = /^(?=.*[A-Z])(?=.*[a-z])(?=.*\d)(?=.*[!@#]).{8,}$/;
         return regex.test(password);
@@ -190,8 +197,11 @@
         const regex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
         return regex.test(email);
     }
+    // Adding an event listener to the registration form for form submission
     registrationForm.addEventListener('submit', async (e) => {
-        e.preventDefault();
+        e.preventDefault(); // Prevents the default form submission behavior
+
+        // Retrieving form input elements by their names
         const usernameInput = registrationForm.querySelector('input[name="username"]');
         const emailInput = registrationForm.querySelector('input[name="email"]');
         const passwordInput = registrationForm.querySelector('input[name="password"]');
@@ -199,13 +209,14 @@
         const usernameValidationMessage = document.getElementById('usernameValidationMessage');
         const emailValidationMessage = document.getElementById('emailValidationMessage');
         const passwordValidationMessage = document.getElementById('passwordValidationMessage');
-        const confirmPasswordValidationMessage = document.getElementById(
-            'confirmPasswordValidationMessage');
+        const confirmPasswordValidationMessage = document.getElementById('confirmPasswordValidationMessage');
 
+        // Retrieving values from input fields
         const username = usernameInput.value;
         const email = emailInput.value;
         const password = passwordInput.value;
         const confirmPassword = confirmPasswordInput.value;
+
 
         // Client-side validation
         let isValid = true;
